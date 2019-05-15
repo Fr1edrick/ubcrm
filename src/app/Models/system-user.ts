@@ -1,4 +1,9 @@
 export class SystemUser {
-  correo: string;
-  contrasena: string;
+  token: string;
+  user: {
+    idUser: number;
+    correo: string;
+  };
+  /* correo: string;
+  contrasena: string; */
 }
