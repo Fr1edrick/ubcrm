@@ -40,7 +40,7 @@ export class AuthService {
         catchError(this.handleError)
       )
     }
-
+    // "node": "6.11.1",
     authentication(correo: string, contrasena: string): Observable<any> {
       return this.http.post<any>(this.uri + '/api/auth', {correo, contrasena}, httpOptions)
         .pipe(map(user => {
