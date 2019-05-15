@@ -42,11 +42,13 @@ export class AuthService {
     }
 
     authentication(correo: string, contrasena: string): Observable<any> {
-      return this.http.post<SystemUser[]>(this.uri + '/api/auth', {correo, contrasena}, httpOptions)
+      return this.http.post<any>(this.uri + '/api/auth', {correo, contrasena}, httpOptions)
         .pipe(map(user => {
           if (user) {
             console.log('auth response: ' + user.token);
             localStorage.setItem('currentUser', user.token);
+          } else {
+            console.log('auth failed');
           }
         })
       )
