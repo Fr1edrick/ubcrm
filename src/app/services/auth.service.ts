@@ -47,8 +47,9 @@ export class AuthService {
           if (user) {
             console.log('auth response: ' + user.token);
             localStorage.setItem('currentUser', user.token);
-          } else {
+          } else if (user === undefined) {
             console.log('auth failed');
+            localStorage.removeItem('currentUser');
           }
         })
       )
